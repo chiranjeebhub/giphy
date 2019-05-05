@@ -35,7 +35,7 @@ class App extends Component {
       .get(
         `http://api.giphy.com/v1/gifs/search?q=${
           this.state.query
-        }&api_key=W6j782MUgb8aXKhD289LHocpawNNNcaH&limit=5`,
+        }&api_key=W6j782MUgb8aXKhD289LHocpawNNNcaH&limit=10`,
         { crossdomain: true }
       )
       .then(res => {
