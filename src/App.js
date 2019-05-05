@@ -6,21 +6,11 @@ import axios from "axios";
 class App extends Component {
   state = {
     gif: [],
-    query: ""
+    query: "earth from space"
   };
 
   componentDidMount() {
-    axios
-      .get(
-        `http://api.giphy.com/v1/gifs/trending?api_key=W6j782MUgb8aXKhD289LHocpawNNNcaH&limit=10`,
-        { crossdomain: true }
-      )
-      .then(res => {
-        this.setState({
-          gif: res.data.data
-        });
-        console.log(res.data.data);
-      });
+    this.getGif();
   }
 
   handleChange = e => {
@@ -31,9 +21,12 @@ class App extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.getGif();
+  };
+  getGif = () => {
     axios
       .get(
-        `http://api.giphy.com/v1/gifs/search?q=${
+        `https://api.giphy.com/v1/gifs/search?q=${
           this.state.query
         }&api_key=W6j782MUgb8aXKhD289LHocpawNNNcaH&limit=10`,
         { crossdomain: true }
@@ -45,7 +38,6 @@ class App extends Component {
         console.log(res.data.data);
       });
   };
-
   render() {
     return (
       <div className="App">
