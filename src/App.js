@@ -12,7 +12,7 @@ class App extends Component {
   componentDidMount() {
     axios
       .get(
-        `http://api.giphy.com/v1/gifs/trending?api_key=W6j782MUgb8aXKhD289LHocpawNNNcaH&limit=5`,
+        `http://api.giphy.com/v1/gifs/trending?api_key=W6j782MUgb8aXKhD289LHocpawNNNcaH&limit=10`,
         { crossdomain: true }
       )
       .then(res => {
